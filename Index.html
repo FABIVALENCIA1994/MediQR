@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>MediQR</title>
+  </head>
+  <body>
+    <!-- ENCABEZADO CON IMAGEN Y TEXTO -->
+    <header class="encabezado-fijo">
+      <img src="imagenes/header.jpg" alt="Imagen de encabezado profesional" />
+      <div class="texto-header">
+        <h1>Tú Historia Médica al Instante</h1>
+        <p>Al Alcance de un QR</p>
+      </div>
+    </header>
+
+    <!-- LOGO FLOTANTE -->
+    <div class="foto-perfil">
+      <img src="imagenes/Principal.png" alt="Foto de perfil" />
+    </div>
+
+    <!-- FRASES LATERALES -->
+    <div class="frase-lateral izquierda">#MediQR</div>
+    <div class="frase-lateral derecha">#MediQR</div>
+
+    <!-- QUIÉNES SOMOS -->
+    <section class="perfil">
+      <h2>¿Quiénes Somos?</h2>
+      <p>
+        En MediQR, conectamos tu salud con la tecnología. Somos un servicio
+        innovador que permite acceder de forma rápida, segura y sencilla a tu
+        información médica personal mediante un código QR único. Diseñado
+        especialmente para emergencias y consultas médicas, MediQR garantiza que
+        los profesionales de la salud tengan a la mano los datos vitales que
+        necesitan cuando cada segundo cuenta. Porque tu salud merece estar al
+        alcance, siempre.
+      </p>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="beneficios">
+      <h2>Nuestros Beneficios</h2>
+      <ul>
+        <li>
+          <img src="imagenes/beneficio1.jpg" alt="Emergencias rápidas" />
+          <strong>Atención médica rápida y precisa en emergencias.</strong>
+        </li>
+        <li>
+          <img src="imagenes/beneficio2.jpg" alt="Información disponible" />
+          <strong>Información siempre disponible y editable</strong>
+        </li>
+        <li>
+          <img src="imagenes/beneficio3.jpg" alt="Tranquilidad familiar" />
+          <strong>Tranquilidad para ti y tus seres queridos</strong>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECCIÓN DE PROTOTIPOS -->
+    <section class="prototipos">
+      <h2>Nuestros Prototipos</h2>
+      <div class="Tipo-prototipos-contenedor">
+        <div class="Tipo-prototipos">
+          <img
+            src="imagenes/prototipo1.jpg"
+            alt="Prototipo 1"
+            onclick="abrirLightbox(this.src)"
+          />
+        </div>
+        <div class="Tipo-prototipos">
+          <img
+            src="imagenes/prototipo2.jpg"
+            alt="Prototipo 2"
+            onclick="abrirLightbox(this.src)"
+          />
+        </div>
+        <div class="Tipo-prototipos">
+          <img
+            src="imagenes/prototipo3.jpg"
+            alt="Prototipo 3"
+            onclick="abrirLightbox(this.src)"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTÓN DE CONTACTANOS -->
+    <div style="text-align: center; margin: 40px 0">
+      <a href="contacto.html" class="btn-contactanos"> Contáctanos </a>
+    </div>
+
+    <!-- PIE DE PÁGINA CON CONTACTO -->
+    <footer class="footer-contacto">
+      <p>
+        Contacto:
+        <a href="mailto:info.mediqr@gmail.com">E-mail</a>
+        | <a href="https://w.app/mediqr">WhatsApp</a>
+      </p>
+      <div class="redes">
+        <a href="https://www.facebook.com/" target="_blank">
+          <i class="fab fa-facebook"></i> @Medi_QR
+        </a>
+
+        <a href="https://www.instagram.com/" target="_blank">
+          <i class="fab fa-instagram"></i> @Medi_QR
+        </a>
+      </div>
+    </footer>
+
+    <!-- LIGHTBOX para visualizar imagen ampliada -->
+    <div id="lightbox" class="lightbox" onclick="cerrarLightbox()">
+      <img id="imagenAmpliada" src="" alt="Imagen ampliada" />
+    </div>
+
+    <!-- Script del lightbox -->
+    <script>
+      function abrirLightbox(imagenSrc) {
+        document.getElementById("imagenAmpliada").src = imagenSrc;
+        document.getElementById("lightbox").style.display = "flex";
+      }
+
+      function cerrarLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

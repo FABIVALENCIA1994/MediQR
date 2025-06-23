@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediQR - Contáctanos</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="imagenes/favicon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- ENCABEZADO CON IMAGEN Y TEXTO -->
+    <div class="envoltorio">
+      <header class="encabezado-fijo">
+        <img src="Imagenes/header.jpg" alt="Imagen de encabezado profesional" />
+        <div class="texto-header">
+          <h1>Tú Historia Médica al Instante</h1>
+          <p>Al Alcance de un QR</p>
+        </div>
+      </header>
+      <!-- LOGO FLOTANTE -->
+      <div class="foto-perfil">
+        <img src="imagenes/Principal.png" alt="Foto de perfil" />
+      </div>
+      <main>
+        <section class="contacto">
+          <div class="franja-contacto">
+            <h3>¿Cómo podemos ayudarte?</h3>
+            <p>
+              Déjanos tu mensaje y permítenos cuidarte con nuestra tecnología
+            </p>
+          </div>
+
+          <p class="frase-contacto">
+            ¡Porque cada segundo cuenta, MediQR te cuida!
+          </p>
+          <!-- FORMULARIO-->
+          <form
+            id="formulario-contacto"
+            action="https://formspree.io/f/xnndzngy"
+            method="POST"
+          >
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Nombre completo"
+              required
+            />
+            <input type="tel" name="telefono" placeholder="Teléfono" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Correo electrónico"
+              required
+            />
+            <textarea
+              name="mensaje"
+              rows="5"
+              placeholder="Escribe tu mensaje aquí..."
+              required
+            ></textarea>
+            <button type="submit">Enviar mensaje</button>
+
+            <p id="mensaje-confirmacion" class="mensaje-confirmacion oculto">
+              ✅ ¡Gracias por contactarnos! Te responderemos pronto.
+              <br />
+              <span id="frase-confirmacion" class="frase-decorada"></span>
+            </p>
+          </form>
+        </section>
+      </main>
+
+      <!-- BOTÓN DE CONTACTANOS -->
+    <div style="text-align: center; margin: 40px 0">
+      <a href="index.html" class="btn-contactanos"> Volver a la Página Principal </a>
+    </div>
+
+      <!-- PIE DE PÁGINA CON CONTACTO -->
+      <footer class="footer-contacto">
+        <p>
+          Contacto:
+          <a href="mailto:info.mediqr@gmail.com">E-mail</a>
+          | <a href="https://w.app/mediqr">WhatsApp</a>
+        </p>
+        <div class="redes">
+          <a href="https://www.facebook.com/" target="_blank">
+            <i class="fab fa-facebook"></i> @Medi_QR
+          </a>
+
+          <a href="https://www.instagram.com/tuusuario" target="_blank">
+            <i class="fab fa-instagram"></i> @Medi_QR
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const formulario = document.getElementById("formulario-contacto");
+      const mensaje = document.getElementById("mensaje-confirmacion");
+      const frase = document.getElementById("frase-confirmacion");
+
+      const frases = [
+        "¡MediQR, tu aliado en salud!",
+        "¡MediQR, tu mejor opción!",
+      ];
+
+      formulario.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const datos = new FormData(formulario);
+
+        fetch(formulario.action, {
+          method: "POST",
+          body: datos,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((respuesta) => {
+            if (respuesta.ok) {
+              formulario.reset();
+              const aleatoria =
+                frases[Math.floor(Math.random() * frases.length)];
+              frase.textContent = aleatoria;
+              mensaje.classList.remove("oculto");
+              mensaje.style.display = "block";
+            } else {
+              alert("Hubo un error al enviar tu mensaje. Intenta de nuevo.");
+            }
+          })
+          .catch(() => {
+            alert("Error de conexión. Revisa tu red e intenta nuevamente.");
+          });
+      });
+    </script>
+  </body>
+</html>
